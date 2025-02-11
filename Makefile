@@ -34,5 +34,6 @@ push-hub:
 	huggingface-cli upload nishantguvvada/Drug-Classification ./Model /Model --repo-type=space --commit-message="Sync Model"
 	huggingface-cli upload nishantguvvada/Drug-Classification ./Results /Metrics --repo-type=space --commit-message="Sync Metrics"
 
-deploy: 
-	hf-login push-hub
+deploy: hf-login push-hub
+
+all: install format train eval update-branch deploy
